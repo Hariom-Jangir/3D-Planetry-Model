@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>3D Planetary Motion</title>
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+
+<body>
+
+  <!-- SCROLL CONTAINER -->
+  <div id="scroll-container">
+
+    <!-- ================= PAGE 1 : INTRO ================= -->
+    <section class="theory scene1">
+      <h1 class="title">Planetary Motion in 3D</h1>
+    </section>
+
+    <!-- ================= PAGE 2 : 3D SPACE ================= -->
+    <section class="theory scene2">
+      <div class="theory-panel">
+        <h2>3D Coordinate System</h2>
+        <p>• Space is defined using X, Y, Z axes</p>
+        <p>• Objects are positioned in world space</p>
+        <p>• Camera movement does not change object coordinates</p>
+      </div>
+    </section>
+
+    <!-- ================= PAGE 3 : MANDA–SAṀSKĀRA ================= -->
+    <section class="theory scene3">
+      <div class="theory-panel derivation">
+
+        <h2>
+          Manda–Saṁskāra<br />
+          <span>(Calculation of Manda-Sphuṭa)</span>
+        </h2>
+
+        <p>
+          The <b>manda-sphuṭa</b> is the true longitude of a planet obtained by
+          applying the <b>manda-saṁskāra</b> (equation of centre) to the mean longitude.
+        </p>
+
+        <p class="equation">
+          θ<sub>ms</sub> = θ<sub>0</sub> − Δθ
+        </p>
+
+        <p>
+          The correction Δθ depends on the <b>manda-kendra</b>:
+        </p>
+
+        <p class="equation">
+          θ<sub>0</sub> − θ<sub>m</sub>
+        </p>
+
+        <p>From epicycle geometry:</p>
+
+        <p class="equation">
+          R sin Δθ = (r₀ / R) · R sin(θ₀ − θ<sub>m</sub>)
+        </p>
+
+        <p>
+          This construction explains the non-uniform motion of planets in the
+          traditional Indian astronomical model.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- ================= PAGE 4 : EPICYCLE vs ECCENTRIC ================= -->
+<section class="theory scene4">
+  <div class="scene4-container">
+    <div class="theory-panel">
+      <h2>Epicycle and Eccentric Models</h2>
+
+      <p>
+        This scene visualizes the <b>geometrical construction</b> used to obtain
+        the manda-sphuṭa.
+      </p>
+
+      <p>• Mean planet P₀ moves uniformly on deferent</p>
+      <p>• Epicycle centered at P₀ with radius r</p>
+      <p>• Direction OU represents mandocca</p>
+      <p>• True planet P obtained by parallel shift</p>
+
+      <p>
+        Both <b>epicycle</b> and <b>eccentric</b> constructions are mathematically equivalent.
+      </p>
+
+      <button id="toggleModel" class="ui-btn">
+        Toggle Epicycle / Eccentric
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 5 : ŚĪGHRA-SAṀSKĀRA -->
+<section class="theory scene5">
+  <div class="theory-panel derivation">
+
+    <h2>
+      Śīghra–Saṁskāra  
+      <br>
+      <span>(Geocentric Correction)</span>
+    </h2>
+
+    <p>
+      Śīghra-saṁskāra transforms the
+      <b>manda-sphuṭa</b> (heliocentric longitude)
+      into the <b>true geocentric longitude</b>
+      of the planet.
+    </p>
+
+    <p>
+      The correction depends on the
+      <b>śīghra-kendra</b>:
+    </p>
+
+    <p class="equation">
+      σ = θ<sub>s</sub> − θ<sub>ms</sub>
+    </p>
+
+    <p>
+      From triangle EPS:
+    </p>
+
+    <p class="equation">
+      sin(θ − θ<sub>ms</sub>) =
+      <br>
+      (r<sub>s</sub> sin σ) /
+      √[(R + r<sub>s</sub> cos σ)² + r<sub>s</sub>² sin² σ]
+    </p>
+
+    <p>
+      This construction explains how Indian astronomy
+      converts heliocentric motion into
+      observable geocentric motion.
+    </p>
+
+  </div>
+</section>
+
+
+  </div>
+
+  <!-- THREE.JS CANVAS -->
+  <canvas id="webgl"></canvas>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

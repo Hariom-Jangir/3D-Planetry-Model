@@ -1,0 +1,245 @@
+/* =========================
+   GLOBAL RESET
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =========================
+   BODY
+========================= */
+body {
+  background: black;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+/* =========================
+   SCROLL STRUCTURE
+========================= */
+#scroll-container {
+  position: relative;
+  z-index: 10;
+}
+
+/* Each scroll section = one page */
+.theory {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  pointer-events: none;
+}
+
+/* =========================
+   PAGE 1 : TITLE
+========================= */
+.title {
+  font-size: 3.2rem;
+  letter-spacing: 1px;
+}
+
+/* =========================
+   PAGE 2 : SCENE 2
+========================= */
+.scene2 {
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+/* Theory panel (Scene 2 only) */
+.scene2 .theory-panel {
+  display: none;
+  position: fixed;
+  top: 30px;
+  left: 30px;
+  background: rgba(0, 0, 0, 0.65);
+  padding: 16px 20px;
+  border-radius: 10px;
+  max-width: 320px;
+  z-index: 15;
+  pointer-events: none;
+}
+
+.scene2 .theory-panel h2 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+/* =========================
+   SLIDER UI (Scene 2)
+========================= */
+#slider-ui {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  padding: 12px 18px;
+  border-radius: 8px;
+  z-index: 20;
+  display: flex;
+  gap: 12px;
+  pointer-events: auto;
+}
+
+#slider-ui label {
+  font-size: 14px;
+}
+
+#slider-ui input {
+  width: 100px;
+}
+
+/* =========================
+   THREE.JS CANVAS
+========================= */
+#webgl {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  outline: none;
+}
+
+/* =========================
+   DERIVATION (Scene 3)
+========================= */
+.derivation {
+  padding: 80px 15%;
+  text-align: left;
+  line-height: 1.7;
+}
+
+.derivation h2 {
+  margin-bottom: 20px;
+}
+
+.equation {
+  margin: 14px 0;
+  padding: 10px 14px;
+  background: rgba(255,255,255,0.06);
+  border-left: 3px solid #4fc3f7;
+  font-family: "Times New Roman", serif;
+}
+
+/* =========================
+   UI BUTTON (GLOBAL)
+========================= */
+.ui-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+
+  padding: 12px 20px;
+  font-size: 14px;
+
+  background: rgba(0,0,0,0.85);
+  color: white;
+
+  border: 2px solid white;
+  border-radius: 8px;
+
+  cursor: pointer;
+  z-index: 30;
+
+  display: none;            /* JS controls visibility */
+  white-space: nowrap;
+
+  pointer-events: auto;
+  transition: 0.25s ease;
+}
+
+.ui-btn:hover {
+  background: white;
+  color: black;
+  transform: scale(1.05);
+}
+
+/* =========================
+   SCENE 4
+========================= */
+.scene4 {
+  position: relative;
+  height: 100vh;
+  pointer-events: none;
+}
+
+/* =========================
+   SCENE 4 PANEL POSITION
+========================= */
+.scene4 .theory-panel{
+  display: block;
+
+  position: fixed;
+  top: 12%;
+  left: 5%;
+
+  max-width: 420px;
+
+  background: rgba(0,0,0,0.65);
+  padding: 18px 22px;
+  border-radius: 10px;
+
+  color: white;
+  font-size: 15px;
+  line-height: 1.6;
+
+  z-index: 15;
+  pointer-events: auto;
+}
+
+.scene4 h2{
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+/* =========================
+   SCENE 5 : ŚĪGHRA
+========================= */
+.scene5 {
+  height: 100vh;
+  pointer-events: none;
+}
+
+.scene5 .theory-panel {
+  display: none;
+  position: fixed;
+  top: 12%;
+  left: 5%;
+  max-width: 420px;
+
+  background: rgba(0, 0, 0, 0.65);
+  padding: 18px 22px;
+  border-radius: 10px;
+
+  color: #ffffff;
+  font-size: 15px;
+  line-height: 1.6;
+
+  z-index: 15;
+  pointer-events: auto;
+}
+
+.scene5 h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.scene5 h2 span {
+  font-size: 14px;
+  font-weight: normal;
+  opacity: 0.8;
+}
+
+.scene5 .equation {
+  margin: 10px 0;
+  padding: 6px 10px;
+  background: rgba(255, 255, 255, 0.08);
+  border-left: 3px solid #00ffaa;
+  font-family: "Times New Roman", serif;
+}
