@@ -22,6 +22,8 @@ body {
 #scroll-container {
   position: relative;
   z-index: 10;
+height:700vh;
+
 }
 
 /* Each scroll section = one page */
@@ -242,4 +244,104 @@ body {
   background: rgba(255, 255, 255, 0.08);
   border-left: 3px solid #00ffaa;
   font-family: "Times New Roman", serif;
+}
+
+.scene6-page{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:flex-start;
+padding-top:80px;
+color:white;
+}
+  .scene6-wrapper{
+width:85%;
+text-align:center;
+max-width:1200px;
+}
+
+  .scene6-title{
+    font-size:40px;
+    margin-bottom:20px;
+  }
+
+  .scene6-theory{
+    font-size:18px;
+    line-height:1.6;
+    margin-bottom:30px;
+  }
+
+  .scene6-images{
+    display:flex;
+    justify-content:space-between;
+    gap:40px;
+  }
+
+  .diagram{
+    width:50%;
+  }
+
+  .diagram img{
+    width:100%;
+    border-radius:10px;
+    background:white;
+    padding:10px;
+  }
+
+
+
+.scene7-page{
+height:100vh;
+color:white;
+padding-top:480px;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:flex-start;
+}
+.scene7-title{
+font-size:40px;
+margin-bottom:20px;
+}
+
+.scene7-theory{
+max-width:900px;
+text-align:center;
+margin-bottom:20px;
+line-height:1.6;
+}
+
+.scene7-container{
+display:flex;
+gap:40px;
+align-items:center;
+justify-content:center;
+width:90%;
+}
+
+.scene7-diagram{
+width:35%;
+text-align:center;
+}
+
+.scene7-diagram img{
+width:100%;
+background:white;
+padding:10px;
+border-radius:10px;
+}
+
+.caption{
+font-size:14px;
+margin-top:10px;
+color:#ccc;
+}
+
+#scene7-canvas{
+width:500px;
+height:400px;
+}
+
+#scroll-container{
+height:700vh;
 }

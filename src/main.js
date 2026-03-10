@@ -9,9 +9,9 @@ import { scene2 } from "./scenes/scene2_space.js";
 import { sceneManda } from "./scenes/scene_manda.js";
 import { sceneEpicycle } from "./scenes/scene4_epicycle.js";
 import { sceneSighra } from "./scenes/scene5_sighra.js";
-
+import { scene6 } from "./scenes/scene6.js";
 import { createSliders } from "./ui/sliders.js";
-
+import { scene7 } from "./scenes/scene7.js";
 /* =========================
    BASIC SETUP
 ========================= */
@@ -69,6 +69,16 @@ scene4.group.visible = false;
 const sighraScene = sceneSighra(scene);
 sighraScene.group.visible = false;
 
+/* Scene 6 */
+const scene6UI = scene6();
+
+
+/* Scene 7 */
+const container7 = document.getElementById("scene7-canvas");
+
+if(container7){
+  scene7(container7);
+}
 /* =========================
    UI
 ========================= */
@@ -124,6 +134,12 @@ function hideAllScenes() {
   sliderUI.style.display = "none";
 
   controls.enabled = false;
+
+  const s6 = document.querySelector(".scene6-page");
+  if (s6) s6.style.display = "none";
+
+  const s7 = document.querySelector(".scene7-page");
+  if (s7) s7.style.display = "none";
 }
 
 function handleScroll() {
@@ -137,6 +153,7 @@ function handleScroll() {
     camera.position.set(5, 5, 5);
     camera.lookAt(0, 0, 0);
   }
+
 
   /* PAGE 2 — 3D SPACE */
   else if (y < pageHeight * 1.6) {
@@ -168,13 +185,32 @@ else if (y < pageHeight * 3.6) {
   camera.lookAt(0, 0, 0);
 }
   /* PAGE 5 — ŚĪGHRA */
-  else {
-    sighraScene.group.visible = true;
-    scene5Panel.style.display = "block";
+ /* PAGE 5 — ŚĪGHRA */
+else if (y < pageHeight * 4.6) {
 
-    camera.position.set(0, 8, 12);
-    camera.lookAt(0, 0, 0);
-  }
+  sighraScene.group.visible = true;
+  scene5Panel.style.display = "block";
+
+  camera.position.set(0, 8, 12);
+  camera.lookAt(0, 0, 0);
+
+}
+
+/* PAGE 6 — THEORY DIAGRAMS */
+else if (y < pageHeight * 5.6) {
+
+  const s6 = document.querySelector(".scene6-page");
+  if (s6) s6.style.display = "flex";
+
+}
+
+/* PAGE 7 — NILAKANTHA MODEL */
+else if (y < pageHeight * 6.6) {
+
+  const s7 = document.querySelector(".scene7-page");
+  if (s7) s7.style.display = "flex";
+
+}
 }
 
 window.addEventListener("scroll", handleScroll);
