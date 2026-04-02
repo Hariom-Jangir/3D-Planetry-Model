@@ -22,8 +22,7 @@ body {
 #scroll-container {
   position: relative;
   z-index: 10;
-height:700vh;
-
+  height: 1200vh;
 }
 
 /* Each scroll section = one page */
@@ -33,12 +32,18 @@ height:700vh;
   justify-content: center;
   align-items: center;
   text-align: center;
-  pointer-events: none;
+  pointer-events: auto;
+  position: absolute;
+  left: 0;
+  width: 100%;
 }
 
 /* =========================
    PAGE 1 : TITLE
 ========================= */
+.scene1 {
+  top: 0vh;
+}
 .title {
   font-size: 3.2rem;
   letter-spacing: 1px;
@@ -48,6 +53,7 @@ height:700vh;
    PAGE 2 : SCENE 2
 ========================= */
 .scene2 {
+  top: 60vh;
   justify-content: flex-start;
   align-items: flex-start;
 }
@@ -112,6 +118,9 @@ height:700vh;
 /* =========================
    DERIVATION (Scene 3)
 ========================= */
+.scene3 {
+  top: 160vh;
+}
 .derivation {
   padding: 80px 15%;
   text-align: left;
@@ -167,7 +176,8 @@ height:700vh;
    SCENE 4
 ========================= */
 .scene4 {
-  position: relative;
+  position: absolute;
+  top: 260vh;
   height: 100vh;
   pointer-events: none;
 }
@@ -204,6 +214,8 @@ height:700vh;
    SCENE 5 : ŚĪGHRA
 ========================= */
 .scene5 {
+  position: absolute;
+  top: 360vh;
   height: 100vh;
   pointer-events: none;
 }
@@ -247,12 +259,18 @@ height:700vh;
 }
 
 .scene6-page{
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:flex-start;
-padding-top:80px;
-color:white;
+  display: none;      /* Hidden by default, JS show as flex */
+  position: absolute;
+  top: 460vh;
+  left: 0;
+  width: 100%;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  padding-top:80px;
+  color:white;
+  z-index: 10;
 }
   .scene6-wrapper{
 width:85%;
@@ -291,13 +309,19 @@ max-width:1200px;
 
 
 .scene7-page{
-height:100vh;
-color:white;
-padding-top:480px;
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:flex-start;
+  display: none;      /* Hidden by default, JS show as flex */
+  position: absolute;
+  top: 560vh;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  color:white;
+  padding-top: 100px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+  z-index: 10;
 }
 .scene7-title{
 font-size:40px;
@@ -342,15 +366,21 @@ width:500px;
 height:400px;
 }
 
-#scroll-container {
-  height: 900vh;
-}
+/* Consolidated height is now 1000vh at the top */
 .scene8-page {
-  display: flex;   /* 🔥 CHANGE THIS */
+  display: none;       /* Initially hidden, JS will show */
+  position: absolute;
+  top: 660vh;
+  left: 0;
+  width: 100%;
+  height: auto !important;  /* Override .theory 100vh */
   min-height: 100vh;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start; /* Better for long content */
+  padding: 100px 10%;
+  text-align: center;
+  z-index: 10;
 }
 
 .scene8-images {
@@ -365,10 +395,7 @@ height:400px;
   border-radius: 10px;
 }
 
-.theory {
-  position: relative;
-  z-index: 2;
-}
+/* .theory and other base styles are consolidated above */
 
 #webgl {
   position: fixed;

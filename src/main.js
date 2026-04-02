@@ -71,7 +71,7 @@ const sighraScene = sceneSighra(scene);
 sighraScene.group.visible = false;
 
 /* Scene 6 */
-const scene6UI = scene6();
+// Removed redundant scene6() creation to avoid duplicate elements on body
 
 
 /* Scene 7 */
@@ -132,24 +132,27 @@ function hideAllScenes() {
   mandaScene.group.visible = false;
   scene4.group.visible = false;
   sighraScene.group.visible = false;
+  keplerScene.group.visible = false;
+
+  controls.enabled = false;
+
+  // Select all scene sections
+  const scenes = [
+    ".scene1", ".scene2", ".scene3", ".scene4", ".scene5",
+    ".scene6-page", ".scene7-page", ".scene8-page"
+  ];
+
+  scenes.forEach(selector => {
+    const el = document.querySelector(selector);
+    if (el) el.style.display = "none";
+  });
+
+  // Panels and specific UI elements
   scene4Panel.style.display = "none";
   toggleBtn.style.display = "none";
   scene2Panel.style.display = "none";
   scene5Panel.style.display = "none";
   sliderUI.style.display = "none";
-
-  controls.enabled = false;
-
-  const s6 = document.querySelector(".scene6-page");
-  if (s6) s6.style.display = "none";
-
-  const s7 = document.querySelector(".scene7-page");
-  if (s7) s7.style.display = "none";
-
-  keplerScene.group.visible = false;
-
-const s8 = document.querySelector(".scene8-page");
-if (s8) s8.style.display = "none";
 }
 
 function handleScroll() {
@@ -159,16 +162,19 @@ function handleScroll() {
   /* PAGE 1 — INTRO */
   if (y < pageHeight * 0.6) {
     solarSystem.visible = true;
+    const s1 = document.querySelector(".scene1");
+    if (s1) s1.style.display = "flex";
 
     camera.position.set(5, 5, 5);
     camera.lookAt(0, 0, 0);
   }
 
-
   /* PAGE 2 — 3D SPACE */
   else if (y < pageHeight * 1.6) {
     spaceGroup.visible = true;
     controls.enabled = true;
+    const s2 = document.querySelector(".scene2");
+    if (s2) s2.style.display = "flex";
     scene2Panel.style.display = "block";
     sliderUI.style.display = "flex";
 
@@ -179,32 +185,35 @@ function handleScroll() {
   /* PAGE 3 — MANDA */
   else if (y < pageHeight * 2.6) {
     mandaScene.group.visible = true;
+    const s3 = document.querySelector(".scene3");
+    if (s3) s3.style.display = "flex";
 
     camera.position.set(0, 6, 10);
     camera.lookAt(0, 0, 0);
   }
 
   /* PAGE 4 — EPICYCLE */
-  /* PAGE 4 — EPICYCLE */
-else if (y < pageHeight * 3.6) {
-  scene4.group.visible = true;
-  toggleBtn.style.display = "block";
-  scene4Panel.style.display = "block";
+  else if (y < pageHeight * 3.6) {
+    scene4.group.visible = true;
+    const s4 = document.querySelector(".scene4");
+    if (s4) s4.style.display = "flex";
+    toggleBtn.style.display = "block";
+    scene4Panel.style.display = "block";
 
-  camera.position.set(0, 8, 12);
-  camera.lookAt(0, 0, 0);
-}
+    camera.position.set(0, 8, 12);
+    camera.lookAt(0, 0, 0);
+  }
+
   /* PAGE 5 — ŚĪGHRA */
- /* PAGE 5 — ŚĪGHRA */
-else if (y < pageHeight * 4.6) {
+  else if (y < pageHeight * 4.6) {
+    sighraScene.group.visible = true;
+    const s5 = document.querySelector(".scene5");
+    if (s5) s5.style.display = "flex";
+    scene5Panel.style.display = "block";
 
-  sighraScene.group.visible = true;
-  scene5Panel.style.display = "block";
-
-  camera.position.set(0, 8, 12);
-  camera.lookAt(0, 0, 0);
-
-}
+    camera.position.set(0, 8, 12);
+    camera.lookAt(0, 0, 0);
+  }
 
 /* PAGE 6 — THEORY DIAGRAMS */
 else if (y < pageHeight * 5.6) {
@@ -222,7 +231,7 @@ else if (y < pageHeight * 6.6) {
 
 }
 /* PAGE 8 — KEPLER MODEL */
-else if (y < pageHeight * 9) {
+else if (y >= pageHeight * 6.6) {
   keplerScene.group.visible = true;
 
   const s8 = document.querySelector(".scene8-page");
