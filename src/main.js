@@ -12,6 +12,7 @@ import { sceneSighra } from "./scenes/scene5_sighra.js";
 import { scene6 } from "./scenes/scene6.js";
 import { createSliders } from "./ui/sliders.js";
 import { scene7 } from "./scenes/scene7.js";
+import { scene8 } from "./scenes/scene8_kepler.js";
 /* =========================
    BASIC SETUP
 ========================= */
@@ -79,6 +80,10 @@ const container7 = document.getElementById("scene7-canvas");
 if(container7){
   scene7(container7);
 }
+
+/* Scene 8 */
+const keplerScene = scene8(scene);
+keplerScene.group.visible = false;
 /* =========================
    UI
 ========================= */
@@ -108,7 +113,7 @@ function animate() {
   if (mandaScene.group.visible) mandaScene.update();
   if (scene4.group.visible) scene4.update();
   if (sighraScene.group.visible) sighraScene.update();
-
+if (keplerScene.group.visible) keplerScene.update();
   renderer.render(scene, camera);
 }
 animate();
@@ -140,6 +145,11 @@ function hideAllScenes() {
 
   const s7 = document.querySelector(".scene7-page");
   if (s7) s7.style.display = "none";
+
+  keplerScene.group.visible = false;
+
+const s8 = document.querySelector(".scene8-page");
+if (s8) s8.style.display = "none";
 }
 
 function handleScroll() {
@@ -210,6 +220,16 @@ else if (y < pageHeight * 6.6) {
   const s7 = document.querySelector(".scene7-page");
   if (s7) s7.style.display = "flex";
 
+}
+/* PAGE 8 — KEPLER MODEL */
+else if (y < pageHeight * 9) {
+  keplerScene.group.visible = true;
+
+  const s8 = document.querySelector(".scene8-page");
+  if (s8) s8.style.display = "flex";
+
+  camera.position.set(0, 10, 15);
+  camera.lookAt(0, 0, 0);
 }
 }
 
