@@ -20,7 +20,6 @@ This project aims to create a visually engaging and scientifically inspired 3D m
 - **Interactive Controls**: Smooth rotation and zooming using OrbitControls  
 - **Realistic Textures**: High-resolution mapping for planetary surfaces  
 - **Dynamic Lighting**: Implementation of PointLight to simulate a sun/star light source  
-- **Atmospheric Glow**: *(Optional)* Custom shaders for planetary atmospheres  
 - **Responsive Design**: Optimized for different screen sizes using Vite/WebGLRenderer  
 
 ---
@@ -82,4 +81,4 @@ http://localhost:5173
 ## 📝 Credits & Acknowledgments  
 
 - **Course**: Design Credit  
-- **Instructor**: Dinesh Joshi  
+- **Instructor**: Dinesh Mohan Joshi  
